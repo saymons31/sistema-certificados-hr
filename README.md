@@ -33,20 +33,21 @@ Esta solução é dividida em dois ambientes que trabalham em conjunto:
 Siga os passos abaixo para configurar o sistema do zero.
 
 ### Ambiente Local (Python)
-1.  Clone este repositório para o seu computador.
-2.  Instale Python (versão 3.8 ou superior).
-3.  No seu terminal, navegue até a pasta do projeto e instale as dependências:
+1.  Clone este repositório: `git clone [URL_DO_SEU_REPOSITORIO]`
+2.  Na sua máquina, crie a pasta do projeto e coloque os scripts `.py` nela.
+3.  Instale as dependências necessárias através do terminal:
     ```bash
     pip install pandas gspread google-auth-oauthlib
     ```
-4.  Configure o arquivo `credentials.json` seguindo o guia para criar uma **Conta de Serviço** no Google Cloud e habilite as APIs do **Google Drive** e **Google Sheets**.
-5.  Compartilhe a Planilha Google (criada no passo seguinte) com o e-mail da Conta de Serviço (encontrado no `credentials.json`), dando permissão de **"Editor"**.
+4.  Configure o arquivo `credentials.json` seguindo o **[guia oficial da biblioteca gspread para Contas de Serviço](https://gspread.readthedocs.io/en/latest/oauth2.html#for-bots-using-service-account)**. Este processo envolve criar um projeto no Google Cloud, habilitar as APIs do **Google Drive** e **Google Sheets**, criar uma Conta de Serviço e baixar sua chave JSON.
+5.  Após baixar a chave, renomeie o arquivo para `credentials.json` e coloque-o na pasta do projeto.
+6.  **Compartilhe** sua Planilha Google (criada no passo seguinte) com o endereço de e-mail da Conta de Serviço (encontrado dentro do `credentials.json`), dando a ela permissão de **"Editor"**.
 
 ### Ambiente Google (Nuvem)
 1.  **Planilha Google:** Crie uma planilha (ex: "Controle de Certificados") com duas abas: `Respostas` e `Dados Válidos`.
-2.  **Documento Google:** Crie um documento para ser o template, usando os placeholders `{{nome_completo}}`, `{{codigo_artigo}}`, e `{{data_emissao}}`.
-3.  **Formulário Google:** Crie um formulário com os campos necessários e vincule-o à aba `Respostas` da sua planilha. Ative a coleta de e-mails nas configurações.
-4.  **Apps Script:** Na planilha, vá em `Extensões > Apps Script`. Cole o código do arquivo `google_apps_script.js`. Preencha as constantes no topo (IDs do template, da pasta de PDFs e e-mail do admin). Crie um acionador (trigger) do tipo "Ao enviar formulário" para a função `gerarCertificado`.
+2.  **Documento Google:** Crie um documento para ser o template do certificado, usando os placeholders `{{nome_completo}}`, `{{codigo_artigo}}`, e `{{data_emissao}}`.
+3.  **Formulário Google:** Crie um formulário para a solicitação com os campos necessários e vincule-o à aba `Respostas` da sua planilha. Lembre-se de ativar a coleta de e-mails nas configurações do formulário.
+4.  **Apps Script:** Na sua Planilha Google, vá em `Extensões > Apps Script`. Cole o código do arquivo `google_apps_script.js`. Preencha as constantes no topo do script (IDs do template, da pasta e o seu e-mail de admin). Por fim, crie um acionador (trigger) do tipo "Ao enviar formulário" para a função `gerarCertificado`.
 
 ## 🔧 Como Usar
 
