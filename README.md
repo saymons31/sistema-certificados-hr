@@ -33,7 +33,7 @@ Esta solução é dividida em dois ambientes que trabalham em conjunto:
 Siga os passos abaixo para configurar o sistema do zero.
 
 ### Ambiente Local (Python)
-1.  Clone este repositório: `git clone [URL_DO_SEU_REPOSITORIO]`
+1.  Clone este repositório.
 2.  Na sua máquina, crie a pasta do projeto e coloque os scripts `.py` nela.
 3.  Instale as dependências necessárias através do terminal:
     ```bash
